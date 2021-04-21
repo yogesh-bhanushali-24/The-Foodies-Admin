@@ -78,8 +78,6 @@ public class ShowAllUsersActivity extends AppCompatActivity {
         FirebaseRecyclerOptions<Usermodel> options =
                 new FirebaseRecyclerOptions.Builder<Usermodel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("UserDetail").orderByChild("mobile").startAt(s).endAt(s + "\uf8ff"), Usermodel.class)
-//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("UserDetail").orderByChild("Name").startAt(s).endAt(s+"\uf8ff"), Usermodel.class)
-//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("UserDetail").orderByChild("Email").startAt(s).endAt(s+"\uf8ff"), Usermodel.class)
                         .build();
 
         usersadapter = new ShowAllUsersadapter(options);

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertFoodActivity">
+
+    <ImageView
+        android:id="@+id/insertFoodIm"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/italian" />
+
+    <Button
+        android:id="@+id/chooseImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/insertFoodIm"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:text="browse image"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black" />
+
+
+    <EditText
+        android:id="@+id/insertFoodName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/chooseImage"
+        android:hint="Food Name"
+
+
+        />
+
+    <EditText
+        android:id="@+id/insertFoodDescription"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/insertFoodName"
+        android:hint="Description"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/insertFoodPrice"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/insertFoodDescription"
+        android:hint="Price"
+        android:inputType="number"
+        android:layout_marginTop="10dp" />
+
+    <Spinner
+        android:id="@+id/categoriesSpinner"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/insertFoodPrice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/insertFoodButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Insert"
+        android:layout_below="@+id/categoriesSpinner"
+        android:backgroundTint="@color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/resetFoodButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:layout_below="@+id/categoriesSpinner"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="@color/black"
+        android:layout_marginRight="60dp"
+
+        />
+
+
+</RelativeLayout>

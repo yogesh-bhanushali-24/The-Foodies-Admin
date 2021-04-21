@@ -99,13 +99,6 @@ public class ShowAllUsersadapter extends FirebaseRecyclerAdapter<Usermodel, Show
 
         //end update user part
 
-//        holder.sDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AlertDialog.Builder builder=new AlertDialog.Builder(holder.sName.getContext());
-//                builder.setTitle("Delete User");
-//            }
-//        });
 
 
         //Delete User
@@ -119,8 +112,8 @@ public class ShowAllUsersadapter extends FirebaseRecyclerAdapter<Usermodel, Show
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-//                        FirebaseDatabase.getInstance().getReference().child("UserDetail")
-//                                .child(getRef(position).getKey()).removeValue();
+                        FirebaseDatabase.getInstance().getReference().child("UserDetail")
+                                .child(getRef(position).getKey()).removeValue();
 
                         Toast.makeText(view.getContext(), "User Successfully Deleted", Toast.LENGTH_SHORT).show();
 
