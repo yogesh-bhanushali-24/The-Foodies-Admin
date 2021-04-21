@@ -42,7 +42,7 @@ public class InsertFoodActivity extends AppCompatActivity {
     StorageReference storageReference;
     DatabaseReference databaseReference;
     int Image_Request_Code = 7;
-    ProgressDialog progressDialog;
+
 
 
     @Override
@@ -88,7 +88,6 @@ public class InsertFoodActivity extends AppCompatActivity {
                     //do nothing
                 } else {
                     sp = adapterView.getItemAtPosition(i).toString();
-                    Toast.makeText(InsertFoodActivity.this, "selected item is " + sp, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -115,11 +114,28 @@ public class InsertFoodActivity extends AppCompatActivity {
         });
 
 
+        //on click of insert button
         insertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                UploadImage();
+                if (foodName.getText().toString().isEmpty() || foodPrice.getText().toString().isEmpty() || foodDescription.getText().toString().isEmpty() || sp.isEmpty() || foodImage == null) {
+                    Toast.makeText(InsertFoodActivity.this, "All Fields Required", Toast.LENGTH_SHORT).show();
+                } else {
+                    UploadImage();
+                }
+
+            }
+        });
+
+
+        //reset data
+        resetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                foodName.getText().clear();
+                foodDescription.getText().clear();
+                foodPrice.getText().clear();
             }
         });
 
@@ -156,8 +172,6 @@ public class InsertFoodActivity extends AppCompatActivity {
 
     public void UploadImage() {
         if (FilePathUri != null) {
-
-            Toast.makeText(this, "Work" + FilePathUri, Toast.LENGTH_SHORT).show();
             StorageReference storageReference2 = storageReference.child(System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
             storageReference2.putFile(FilePathUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
