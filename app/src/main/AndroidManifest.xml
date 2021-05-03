@@ -11,19 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CaseStudyAdmin">
-        <activity android:name=".InsertFoodActivity">
+        <activity android:name=".ShowAllFoodsActivity">
 
+        </activity>
+        <activity android:name=".InsertFoodActivity"></activity>
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".ShowAllUsersActivity">
-
-
-        </activity>
+        <activity android:name=".ShowAllUsersActivity"></activity>
         <activity android:name=".MainActivity"></activity>
     </application>
 

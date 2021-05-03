@@ -194,6 +194,7 @@ public class InsertFoodActivity extends AppCompatActivity {
                             foodMap.put("price", sPrice);
                             foodMap.put("categories", sp);
                             databaseReference.push().setValue(foodMap);
+                            Toast.makeText(InsertFoodActivity.this, "Food Inserted Successfully", Toast.LENGTH_SHORT).show();
 
                         }
                     });
