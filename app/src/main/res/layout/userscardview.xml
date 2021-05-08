@@ -81,8 +81,6 @@
             android:layout_marginLeft="40dp"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"
-
-
             />
 
         <Button

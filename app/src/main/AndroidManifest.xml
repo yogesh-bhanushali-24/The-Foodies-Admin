@@ -22,7 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShowAllUsersActivity"></activity>
+        <activity
+            android:name=".ShowAllUsersActivity"
+            android:label="Search User By Number">
+
+        </activity>
         <activity android:name=".MainActivity"></activity>
     </application>
 
