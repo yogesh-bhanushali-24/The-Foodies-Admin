@@ -1,5 +1,7 @@
 package com.example.casestudyadmin;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +36,7 @@ public class ShowAllFoodsadapter extends FirebaseRecyclerAdapter<foodmodel, Show
     @Override
     protected void onBindViewHolder(@NonNull final foodviewholder holder, final int position, @NonNull final foodmodel model) {
         holder.FName.setText(model.getName());
-        holder.FCategory.setText(model.getCategories());
+        holder.FCategory.setText(model.getCategories().toUpperCase());
         holder.FPrice.setText(model.getPrice() + "₹");
         holder.FDescription.setText(model.getDescription());
         Glide.with(holder.FImage.getContext()).load(model.getImage()).into(holder.FImage);
@@ -95,6 +97,34 @@ public class ShowAllFoodsadapter extends FirebaseRecyclerAdapter<foodmodel, Show
 
             }
         });
+        //End Update Food
+
+        //Delete Food
+        holder.FDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.FName.getContext());
+                builder.setTitle("Delete Panel");
+                builder.setMessage("Are you sure want to delete ?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase.getInstance().getReference().child("Food")
+                                .child(getRef(position).getKey()).removeValue();
+
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.show();
+            }
+        });
+        //end Delete Food
+
 
     }
 
