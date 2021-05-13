@@ -11,7 +11,7 @@ import com.google.android.material.card.MaterialCardView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MaterialCardView user, food, insertFoods;
+    private MaterialCardView user, food, insertFoods, UserNotice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         user = findViewById(R.id.viewUser);
         food = findViewById(R.id.viewFoods);
         insertFoods = findViewById(R.id.viewInsertFoods);
+        UserNotice = findViewById(R.id.notice);
 
         user.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, InsertFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        UserNotice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NoticeActivity.class);
                 startActivity(intent);
             }
         });

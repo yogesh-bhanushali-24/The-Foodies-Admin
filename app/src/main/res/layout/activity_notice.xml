@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoticeActivity">
+
+
+    <TextView
+        android:id="@+id/lblNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Notice"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/EditNotice"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/lblNotice"
+        android:hint="Write Notice here"
+        android:layout_marginTop="30dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/publish"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Publish"
+        android:backgroundTint="#FF8C00"
+        android:layout_below="@+id/EditNotice"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="40dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/unpublish"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="UnPublish"
+        android:backgroundTint="#006400"
+        android:layout_below="@+id/EditNotice"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/publish"
+
+        />
+
+
+    <TextView
+        android:text="After Publish Notice it will like this "
+        android:id="@+id/MarqueeText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="300dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:textSize="30dp"
+        android:textColor="#FF0000"
+        android:fontFamily="@font/poppins_medium" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="on click of publish the notice is shown on client side and also notice shown center of this activity"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center" />
+
+
+</RelativeLayout>

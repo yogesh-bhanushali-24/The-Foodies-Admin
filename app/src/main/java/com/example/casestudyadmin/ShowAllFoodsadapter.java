@@ -1,7 +1,12 @@
 package com.example.casestudyadmin;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,16 +24,24 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ShowAllFoodsadapter extends FirebaseRecyclerAdapter<foodmodel, ShowAllFoodsadapter.foodviewholder> {
+    Uri FilePathUri;
+    StorageReference storageReference;
+    DatabaseReference databaseReference;
+    int Image_Request_Code = 7;
+
     public ShowAllFoodsadapter(@NonNull FirebaseRecyclerOptions<foodmodel> options) {
         super(options);
     }
@@ -64,9 +77,23 @@ public class ShowAllFoodsadapter extends FirebaseRecyclerAdapter<foodmodel, Show
                 updateFoodDescription.setText(model.getDescription());
                 Glide.with(updateFoodImage.getContext()).load(model.getImage()).into(updateFoodImage);
 
+                //update image
+                updateFoodImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent();
+                        intent.setType("image/*");
+                        intent.setAction(Intent.ACTION_GET_CONTENT);
+                        ((Activity) holder.FImage.getContext()).startActivityForResult(Intent.createChooser(intent, "Select Image"), Image_Request_Code);
+                    }
+                });
+                //end image update
+
+
                 dialogPlus.show();
 
-                //onClick of update button
+
+                //inside the dialogPlus onClick of update button
                 updateFoodBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -93,11 +120,12 @@ public class ShowAllFoodsadapter extends FirebaseRecyclerAdapter<foodmodel, Show
                                 });
                     }
                 });
-
+                //end inside the dialogPlus onClick of update button
 
             }
         });
-        //End Update Food
+        //End edit Food dialog plus
+
 
         //Delete Food
         holder.FDelete.setOnClickListener(new View.OnClickListener() {
@@ -152,5 +180,29 @@ public class ShowAllFoodsadapter extends FirebaseRecyclerAdapter<foodmodel, Show
 
         }
     }
+
+
+    //image update code section
+//////////////////////////////////////////////
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == Image_Request_Code && resultCode == RESULT_OK && data != null && data.getData() != null) {
+//
+//            FilePathUri = data.getData();
+//            try {
+//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), FilePathUri);
+//                foodImage.setImageBitmap(bitmap);
+//            } catch (IOException e) {
+//
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+    // end image update code section
+
 
 }
