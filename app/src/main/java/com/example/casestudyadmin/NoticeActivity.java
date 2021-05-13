@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class NoticeActivity extends AppCompatActivity {
     private EditText note;
-    private Button pub, upub;
+    private MaterialButton pub, upub;
 
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -30,6 +32,7 @@ public class NoticeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
+        getSupportActionBar().hide();
 
         note = findViewById(R.id.EditNotice);
         pub = findViewById(R.id.publish);

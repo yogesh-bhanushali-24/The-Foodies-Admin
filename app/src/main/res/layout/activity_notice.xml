@@ -15,39 +15,55 @@
         android:textSize="35dp"
         android:textStyle="bold"
         android:textColor="@color/teal_700"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:id="@+id/EditNotice"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/lblNotice"
+        android:layout_marginTop="50dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:hint="Write Notice here"
-        android:layout_marginTop="30dp" />
+        android:layout_below="@+id/lblNotice"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EditNotice"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/lblNotice"
+            android:layout_marginTop="30dp"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/publish"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:text="Publish"
         android:backgroundTint="#FF8C00"
-        android:layout_below="@+id/EditNotice"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="40dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/textField" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/unpublish"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="105dp"
+        android:layout_height="50dp"
         android:text="UnPublish"
         android:backgroundTint="#006400"
-        android:layout_below="@+id/EditNotice"
         android:layout_alignParentRight="true"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginLeft="40dp"
         android:layout_toRightOf="@+id/publish"
+        android:layout_below="@+id/textField"
 
         />
 
@@ -76,7 +92,8 @@
         android:layout_height="wrap_content"
         android:text="on click of publish the notice is shown on client side and also notice shown center of this activity"
         android:layout_alignParentBottom="true"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_marginBottom="5dp" />
 
 
 </RelativeLayout>
