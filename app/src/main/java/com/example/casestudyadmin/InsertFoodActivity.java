@@ -210,8 +210,6 @@ public class InsertFoodActivity extends AppCompatActivity {
 
                         }
                     });
-
-
                 }
             });
 
