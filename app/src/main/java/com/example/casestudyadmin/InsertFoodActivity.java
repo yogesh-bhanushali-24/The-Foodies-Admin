@@ -42,6 +42,7 @@ public class InsertFoodActivity extends AppCompatActivity {
     StorageReference storageReference;
     DatabaseReference databaseReference;
     int Image_Request_Code = 7;
+    ProgressDialog progressDialog;
 
 
 
@@ -61,6 +62,10 @@ public class InsertFoodActivity extends AppCompatActivity {
         spinner = findViewById(R.id.categoriesSpinner);
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Food");
+
+        progressDialog = new ProgressDialog(InsertFoodActivity.this);
+        progressDialog.setTitle("Insert Food");
+        progressDialog.setMessage("Uploading");
 
 
         //spinner code
@@ -122,6 +127,7 @@ public class InsertFoodActivity extends AppCompatActivity {
                 if (foodName.getText().toString().isEmpty() || foodPrice.getText().toString().isEmpty() || foodDescription.getText().toString().isEmpty() || sp.isEmpty() || foodImage == null) {
                     Toast.makeText(InsertFoodActivity.this, "All Fields Required", Toast.LENGTH_SHORT).show();
                 } else {
+                    progressDialog.show();
                     UploadImage();
                 }
 
@@ -194,6 +200,12 @@ public class InsertFoodActivity extends AppCompatActivity {
                             foodMap.put("price", sPrice);
                             foodMap.put("categories", sp);
                             databaseReference.push().setValue(foodMap);
+                            progressDialog.dismiss();
+                            foodName.setText("");
+                            foodDescription.setText("");
+                            foodPrice.setText("");
+                            foodImage.setImageResource(R.drawable.foodinserting);
+
                             Toast.makeText(InsertFoodActivity.this, "Food Inserted Successfully", Toast.LENGTH_SHORT).show();
 
                         }
