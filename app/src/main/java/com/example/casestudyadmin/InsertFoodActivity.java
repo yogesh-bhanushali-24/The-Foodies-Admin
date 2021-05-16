@@ -188,9 +188,9 @@ public class InsertFoodActivity extends AppCompatActivity {
                         public void onSuccess(Uri uri) {
 
                             @SuppressWarnings("VisibleForTests")
-                            String sName = foodName.getText().toString();
-                            String sDescription = foodDescription.getText().toString();
-                            String sPrice = foodPrice.getText().toString();
+                            String sName = foodName.getText().toString().trim();
+                            String sDescription = foodDescription.getText().toString().trim();
+                            String sPrice = foodPrice.getText().toString().trim();
                             String sImage = uri.toString();
 
                             HashMap<String, String> foodMap = new HashMap<>();

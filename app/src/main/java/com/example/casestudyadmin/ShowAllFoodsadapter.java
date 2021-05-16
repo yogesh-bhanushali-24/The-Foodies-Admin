@@ -99,9 +99,9 @@ public class ShowAllFoodsadapter extends FirebaseRecyclerAdapter<foodmodel, Show
                     public void onClick(View view) {
 
                         Map<String, Object> map = new HashMap<>();
-                        map.put("name", updateFoodName.getText().toString());
-                        map.put("description", updateFoodDescription.getText().toString());
-                        map.put("price", updateFoodPrice.getText().toString());
+                        map.put("name", updateFoodName.getText().toString().trim());
+                        map.put("description", updateFoodDescription.getText().toString().trim());
+                        map.put("price", updateFoodPrice.getText().toString().trim());
                         map.put("categories", updateFoodCategory.getText().toString());
                         FirebaseDatabase.getInstance().getReference().child("Food")
                                 .child(getRef(position).getKey()).updateChildren(map)

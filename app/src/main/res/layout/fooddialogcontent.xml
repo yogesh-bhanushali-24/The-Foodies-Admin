@@ -37,7 +37,8 @@
         android:layout_height="wrap_content"
         android:hint="Food Price"
         android:layout_marginTop="10dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/foodDialogCategory"
