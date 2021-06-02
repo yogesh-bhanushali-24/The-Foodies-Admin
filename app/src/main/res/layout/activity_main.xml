@@ -43,7 +43,6 @@
 
 
         <com.google.android.material.card.MaterialCardView
-
             android:id="@+id/viewUser"
             android:layout_width="145dp"
             android:layout_height="200dp"
@@ -86,6 +85,7 @@
         <!-- COLUMN 2  -->
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/viewOrder"
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:layout_marginLeft="16dp"

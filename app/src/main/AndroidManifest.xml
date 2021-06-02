@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CaseStudyAdmin">
-        <activity android:name=".NoticeActivity"></activity>
-        <activity android:name=".ShowAllFoodsActivity"></activity>
+        <activity android:name=".ShowAllOrdersActivity"></activity>
+        <activity android:name=".NoticeActivity" />
+        <activity android:name=".ShowAllFoodsActivity" />
         <activity android:name=".InsertFoodActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
@@ -23,7 +24,7 @@
         </activity>
         <activity
             android:name=".ShowAllUsersActivity"
-            android:label="Search User By Number"></activity>
+            android:label="Search User By Number" />
         <activity android:name=".MainActivity" />
     </application>
 
